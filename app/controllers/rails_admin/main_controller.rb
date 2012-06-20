@@ -82,6 +82,8 @@ module RailsAdmin
         redirect_to new_path(:return_to => params[:return_to]), :flash => { :success => notice }
       elsif params[:_add_edit]
         redirect_to edit_path(:id => @object.id, :return_to => params[:return_to]), :flash => { :success => notice }
+      elsif params[:_save_and_next]
+        redirect_to params[:_save_and_next], :flash => {:success => notice}
       else
         redirect_to back_or_index, :flash => { :success => notice }
       end
